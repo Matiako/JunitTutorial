@@ -19,20 +19,20 @@ import static org.junit.Assert.assertTrue;
 public class StringHelperParameterizedTest {
     StringHelper helper = new StringHelper();
     private String input;
+    private String expectedOutput;
+
+
 
     public StringHelperParameterizedTest(String input, String expectedOutput) {
         this.input = input;
         this.expectedOutput = expectedOutput;
     }
 
-    private String expectedOutput;
-
     @Parameterized.Parameters
     public static Collection<String[]> testConditions() {
         String expectedOutputs[][] = {{"AACD", "CD"}, {"ACD", "CD"}};
         return Arrays.asList(expectedOutputs);
     }
-
 
     @Test
     public void testTruncateAInFirst2Positions_Condition() {
